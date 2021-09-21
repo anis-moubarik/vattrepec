@@ -1,7 +1,5 @@
 FROM nginx:stable-perl
 
-USER nginx
-
 COPY index.html /usr/share/nginx/html
 
 RUN mkdir /usr/share/nginx/html/repecdata
