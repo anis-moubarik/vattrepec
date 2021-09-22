@@ -17,7 +17,8 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN mkdir /usr/share/nginx/html/repecdata
 
-RUN mkdir /var/cache/nginx/client_temp && \
+RUN mkdir -p /var/cache/nginx && \
+    mkdir /var/cache/nginx/client_temp && \
     mkdir /var/cache/nginx/proxy_temp \
     mkdir /var/cache/nginx/fastcgi_temp && \
     mkdir /var/cache/nginx/uwsgi_temp && \
