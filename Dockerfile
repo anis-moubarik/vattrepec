@@ -19,15 +19,13 @@ RUN chown -R nginx:nginx /usr/share/nginx
 
 RUN mkdir -p /repec_files/repeclogs/
 
-RUN chown -R nginx:nginx /repec_files
-
-USER nginx
-
 COPY dspace2redif* /repec_files/
 
 COPY ferarch.rdf /usr/share/nginx/html/repecdata/
 
 COPY ferseri.rdf /usr/share/nginx/html/repecdata/
+
+RUN chown -R nginx:nginx /repec_files
 
 RUN export DEBIAN_FRONTEND=noninteractive
 
@@ -48,6 +46,8 @@ RUN crontab -u nginx /etc/cron.d/repec-cron && chmod u+s /usr/sbin/cron
 RUN touch /var/log/cron.log
 
 RUN chown -R nginx:nginx /var/log/cron.log
+
+USER nginx
 
 RUN cd /repec_files/; ./dspace2redif.pl; ./dspace2redif_1.pl; ./dspace2redif_2.pl
 
