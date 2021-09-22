@@ -27,9 +27,6 @@ RUN mkdir -p /var/cache/nginx && \
 RUN chown -R nginx:nginx /usr/share/nginx && \
     chown -R nginx:nginx /var/cache/nginx
 
-RUN chown -R 1001 /usr/share/nginx && \
-    chown -R 1001 /var/cache/nginx
-
 RUN mkdir -p /repec_files/repeclogs/
 
 COPY dspace2redif* /repec_files/
