@@ -10,7 +10,7 @@ use warnings;
 use vars qw( $ArchiveDir $OutDir $OutFile $Series $URLRoot $OAIGateway $OAISeries $UTFBOM $UTFconvert $BaseURL);
 use lib qw(.);
 
-print "dspace2redif v2.0.0\n";
+print "dspace2redif v2.0.0\nVATT Research Reports\n";
 print "Stuart Yeates, 2015/07/18\n";
 print "Christian Zimmermann, 2009/01/07\n";
 print "based on a script by Kit Baum\n\n";

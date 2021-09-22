@@ -1,3 +1,3 @@
-0 5 * * * /repec_files/dspace2redif.pl /repec_files/dspace2redif.conf 2>&1 | ts >> /repec_files/repec.log
-1 5 * * * /repec_files/dspace2redif_1.pl /repec_files/dspace2redif_1.conf 2>&1 | ts >> /repec_files/repec.log
-2 5 * * * /repec_files/dspace2redif_2.pl /repec_files/dspace2redif_2.conf 2>&1 | ts >> /repec_files/repec.log
+0 * * * * /repec_files/dspace2redif.pl /repec_files/dspace2redif.conf 2>&1 | ts >> /repec_files/repec.log
+5 * * * * /repec_files/dspace2redif_1.pl /repec_files/dspace2redif_1.conf 2>&1 | ts >> /repec_files/repec.log
+10 * * * * /repec_files/dspace2redif_2.pl /repec_files/dspace2redif_2.conf 2>&1 | ts >> /repec_files/repec.log
