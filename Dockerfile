@@ -16,7 +16,7 @@ COPY index.html /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN mkdir /usr/share/nginx/html/repecdata
-#
+
 RUN chown -R nginx:nginx /usr/share/nginx
 
 RUN mkdir -p /repec_files/repeclogs/
