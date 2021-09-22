@@ -11,17 +11,19 @@ COPY default.conf /etc/nginx/conf.d/default.conf
 #RUN touch /var/run/nginx.pid && \
 #    chown -R nginx:nginx /var/run/nginx.pid
 
-COPY index.html /usr/share/nginx/html
+RUN mkdir /tmp/html
 
-RUN mkdir /usr/share/nginx/html/repecdata
+COPY index.html /tmp/html
+
+RUN mkdir /tmp/html/repecdata
 
 RUN mkdir -p /repec_files/repeclogs/
 
 COPY dspace2redif* /repec_files/
 
-COPY ferarch.rdf /usr/share/nginx/html/repecdata/
+COPY ferarch.rdf /tmp/html/repecdata/
 
-COPY ferseri.rdf /usr/share/nginx/html/repecdata/
+COPY ferseri.rdf /tmp/html/repecdata/
 
 RUN chown -R nginx:nginx /repec_files
 
