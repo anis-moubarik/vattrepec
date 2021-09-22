@@ -13,9 +13,9 @@ COPY default.conf /etc/nginx/conf.d/default.conf
 
 COPY index.html /usr/share/nginx/html
 
-RUN mkdir /usr/share/nginx/html/repecdata
+RUN chown -R nginx:nginx /usr/share/nginx
 
-#RUN chown -R nginx:nginx /usr/share/nginx
+RUN mkdir /usr/share/nginx/html/repecdata
 
 RUN mkdir -p /repec_files/repeclogs/
 
