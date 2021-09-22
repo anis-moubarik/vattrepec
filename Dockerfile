@@ -11,11 +11,11 @@ COPY default.conf /etc/nginx/conf.d/default.conf
 #RUN touch /var/run/nginx.pid && \
 #    chown -R nginx:nginx /var/run/nginx.pid
 
-RUN mkdir -p /html/repecdata
+RUN chown -R 1001 /usr/share/nginx
 
-COPY index.html /html/
+COPY index.html /usr/share/nginx/html
 
-RUN chown -R nginx:nginx /html/repecdata
+RUN mkdir /usr/share/nginx/html/repecdata
 
 RUN mkdir -p /repec_files/repeclogs/
 
