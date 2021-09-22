@@ -17,7 +17,10 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN mkdir /usr/share/nginx/html/repecdata
 
-RUN chown -R nginx:nginx /usr/share/nginx
+RUN mkdir /var/cache/nginx/client_temp
+
+RUN chown -R nginx:nginx /usr/share/nginx && \
+    chown -R nginx:nginx /var/cache/nginx
 
 RUN mkdir -p /repec_files/repeclogs/
 
