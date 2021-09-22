@@ -17,15 +17,15 @@ COPY index.html /tmp/html
 
 RUN mkdir /tmp/html/repecdata
 
-RUN mkdir -p /repec_files/repeclogs/
+RUN mkdir -p /tmp/repec_files/repeclogs/
 
-COPY dspace2redif* /repec_files/
+COPY dspace2redif* /tmp/repec_files/
 
 COPY ferarch.rdf /tmp/html/repecdata/
 
 COPY ferseri.rdf /tmp/html/repecdata/
 
-RUN chown -R nginx:nginx /repec_files
+RUN chown -R nginx:nginx /tmp/repec_files
 
 RUN export DEBIAN_FRONTEND=noninteractive
 
@@ -51,6 +51,6 @@ EXPOSE 8080
 
 USER nginx
 
-RUN cd /repec_files/; ./dspace2redif.pl; ./dspace2redif_1.pl; ./dspace2redif_2.pl
+RUN cd /tmp/repec_files/; ./dspace2redif.pl; ./dspace2redif_1.pl; ./dspace2redif_2.pl
 
-CMD cd /repec_files/; ./dspace2redif.pl; ./dspace2redif_1.pl; ./dspace2redif_2.pl; /usr/sbin/cron; nginx -g 'daemon off;'
+CMD cd /tmp/repec_files/; ./dspace2redif.pl; ./dspace2redif_1.pl; ./dspace2redif_2.pl; /usr/sbin/cron; nginx -g 'daemon off;'
