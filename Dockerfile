@@ -20,10 +20,14 @@ RUN mkdir /usr/share/nginx/html/repecdata
 RUN mkdir /var/cache/nginx/client_temp && \
     mkdir /var/cache/nginx/proxy_temp \
     mkdir /var/cache/nginx/fastcgi_temp && \
-    mkdir /var/cache/nginx/uwsgi_temp
+    mkdir /var/cache/nginx/uwsgi_temp && \
+    mkdir /var/cache/nginx/scgi_temp
 
 RUN chown -R nginx:nginx /usr/share/nginx && \
     chown -R nginx:nginx /var/cache/nginx
+
+RUN chown -R 1001 /usr/share/nginx && \
+    chown -R 1001 /var/cache/nginx
 
 RUN mkdir -p /repec_files/repeclogs/
 
