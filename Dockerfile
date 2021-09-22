@@ -57,6 +57,8 @@ RUN touch /var/log/cron.log
 
 RUN chown -R nginx:nginx /var/log/cron.log
 
+RUN chown -R nginx:nginx /usr/share/nginx/html
+
 EXPOSE 8080
 
 USER nginx
