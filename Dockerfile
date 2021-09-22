@@ -1,21 +1,21 @@
-FROM nginx:stable-perl
+nginxinc/nginx-unprivileged:perl
 
 RUN rm /etc/nginx/conf.d/default.conf
 
 COPY default.conf /etc/nginx/conf.d/default.conf
 
-RUN chown -R nginx:nginx 770 /var/cache/nginx &&\
+#RUN chown -R nginx:nginx /var/cache/nginx &&\
 	chown -R nginx:nginx /var/log/nginx &&\
     chown -R nginx:nginx /etc/nginx/conf.d
 
-RUN touch /var/run/nginx.pid && \
+#RUN touch /var/run/nginx.pid && \
     chown -R nginx:nginx /var/run/nginx.pid
 
 COPY index.html /usr/share/nginx/html
 
 RUN mkdir /usr/share/nginx/html/repecdata
 
-RUN chown -R nginx:nginx /usr/share/nginx
+#RUN chown -R nginx:nginx /usr/share/nginx
 
 RUN mkdir -p /repec_files/repeclogs/
 
