@@ -17,9 +17,11 @@ RUN mkdir /usr/share/nginx/html/repecdata
 
 RUN chown -R nginx:nginx /usr/share/nginx
 
-USER nginx
-
 RUN mkdir -p /repec_files/repeclogs/
+
+RUN chown -R nginx:nginx /repec_files
+
+USER nginx
 
 COPY dspace2redif* /repec_files/
 
