@@ -4,7 +4,7 @@ RUN rm /etc/nginx/conf.d/default.conf
 
 COPY default.conf /etc/nginx/conf.d/default.conf
 
-RUN chown -R nginx:nginx /var/cache/nginx &&\
+RUN chown -R nginx:nginx 770 /var/cache/nginx &&\
 	chown -R nginx:nginx /var/log/nginx &&\
     chown -R nginx:nginx /etc/nginx/conf.d
 
@@ -46,6 +46,8 @@ RUN crontab -u nginx /etc/cron.d/repec-cron && chmod u+s /usr/sbin/cron
 RUN touch /var/log/cron.log
 
 RUN chown -R nginx:nginx /var/log/cron.log
+
+EXPOSE 8080
 
 USER nginx
 
