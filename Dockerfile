@@ -1,4 +1,4 @@
-nginxinc/nginx-unprivileged:perl
+FROM nginxinc/nginx-unprivileged:perl
 
 RUN rm /etc/nginx/conf.d/default.conf
 
