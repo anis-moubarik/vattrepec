@@ -65,8 +65,6 @@ RUN chown -R nginx:nginx /usr/share/nginx/html
 
 EXPOSE 8080
 
-USER nginx
-
 RUN cd /repec_files/; ./dspace2redif.pl; ./dspace2redif_1.pl; ./dspace2redif_2.pl
 
 CMD cd /repec_files/; ./dspace2redif.pl; ./dspace2redif_1.pl; ./dspace2redif_2.pl; /usr/sbin/cron; nginx -g 'daemon off;'
