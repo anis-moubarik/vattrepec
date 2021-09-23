@@ -23,8 +23,9 @@ RUN mkdir -p /var/cache/nginx && \
     mkdir /var/cache/nginx/fastcgi_temp && \
     mkdir /var/cache/nginx/uwsgi_temp && \
     mkdir /var/cache/nginx/scgi_temp && \
-    mkdir -p /var/nginx/log && \
-    touch /var/nginx/log/error.log && \
+    mkdir -p /var/nginx/log
+    
+RUN touch /var/nginx/log/error.log && \
     touch /var/nginx/log/access.log
 
 RUN chown -R nginx:nginx /usr/share/nginx && \
@@ -64,6 +65,8 @@ RUN chown -R nginx:nginx /var/log/cron.log
 RUN chown -R nginx:nginx /usr/share/nginx/html
 
 EXPOSE 8080
+
+USER nginx
 
 RUN cd /repec_files/; ./dspace2redif.pl; ./dspace2redif_1.pl; ./dspace2redif_2.pl
 
