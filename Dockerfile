@@ -22,10 +22,14 @@ RUN mkdir -p /var/cache/nginx && \
     mkdir /var/cache/nginx/proxy_temp \
     mkdir /var/cache/nginx/fastcgi_temp && \
     mkdir /var/cache/nginx/uwsgi_temp && \
-    mkdir /var/cache/nginx/scgi_temp
+    mkdir /var/cache/nginx/scgi_temp && \
+    mkdir -p /var/nginx/log && \
+    touch /var/nginx/log/error.log && \
+    touch /var/nginx/log/access.log
 
 RUN chown -R nginx:nginx /usr/share/nginx && \
-    chown -R nginx:nginx /var/cache/nginx
+    chown -R nginx:nginx /var/cache/nginx && \
+    chown -R nginx:nginx /var/nginx/log/
 
 RUN mkdir -p /repec_files/repeclogs/
 
